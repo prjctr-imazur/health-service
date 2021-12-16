@@ -1,28 +1,30 @@
 const packageJson = require('../../package.json');
 
 class ConfigService {
-  storages = [process.env, packageJson];
-
-  has(property) {
-    return this.storages.some((o) => {
-      const hasProperty = Object.prototype.hasOwnProperty.call(o, property);
-      return hasProperty;
-    });
+  get name() {
+    return packageJson.name;
   }
 
-  get(property) {
-    for (let i = 0; i <= this.storages.length; i += 1) {
-      const value = this.storages[i][property];
-      if (value !== undefined) {
-        return value;
-      }
-    }
-    return undefined;
+  get version() {
+    return packageJson.version;
+  }
+
+  get host() {
+    return process.env.host;
+  }
+
+  get port() {
+    return process.env.port;
+  }
+
+  get logLevel() {
+    return process.env.logLevel;
   }
 }
 
-function configServiceInstance() {
+const configService = (function loadConfigService() {
   return new ConfigService();
-}
+  // eslint-disable-next-line prettier/prettier
+}());
 
-module.exports = configServiceInstance();
+module.exports = configService;
