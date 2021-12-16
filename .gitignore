@@ -2,4 +2,8 @@
 node_modules/
 .env
 .env.*
+<<<<<<< HEAD
 !.env.defaults
+=======
+!.env.default
+>>>>>>> 44f8d12a626edc1a2c3de2fcf7a3d96b76fb07cd
