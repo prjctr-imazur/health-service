@@ -10,15 +10,15 @@ class ConfigService {
   }
 
   get host() {
-    return process.env.host;
+    return process.env.HOST;
   }
 
   get port() {
-    return process.env.port;
+    return process.env.PORT;
   }
 
   get logLevel() {
-    return process.env.logLevel;
+    return process.env.LOG_LEVEL;
   }
 }
 
